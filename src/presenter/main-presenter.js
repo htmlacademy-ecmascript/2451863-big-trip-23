@@ -4,7 +4,7 @@ import EventEditView from '../view/event-edit.js';
 import EventsItemView from '../view/event-item.js';
 import EventsListView from '../view/event-list.js';
 
-import { render, RenderPosition } from '../render.js';
+import {render} from '../render.js';
 
 const POINT_AMOUNT = 3;
 
