@@ -15,10 +15,6 @@ export default class EventsListView {
     return this.element;
   }
 
-  addListItem(listItem) {
-    this.getElement().append(listItem.getElement());
-  }
-
   removeElement() {
     this.element = null;
   }
