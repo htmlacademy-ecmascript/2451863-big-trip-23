@@ -1,6 +1,6 @@
 import MainPresenter from './presenter/main-presenter.js';
-import TripInfoView from './view/trip-info.js';
-import FiltersView from './view/filters.js';
+import TripInfoView from './view/trip-info-view.js';
+import FiltersView from './view/filters-view.js';
 import {render, RenderPosition} from './render.js';
 
 const pageMainElement = document.querySelector('.page-main');
@@ -13,7 +13,7 @@ const tripEventsElement = pageMainElement.querySelector('.trip-events');
 
 render(new TripInfoView(), tripMainElement, RenderPosition.AFTERBEGIN);
 
-render(new FiltersView(), tripControlsFiltersElement, RenderPosition.BEFOREEND);
+render(new FiltersView(), tripControlsFiltersElement);
 
 const mainPresenter = new MainPresenter(tripEventsElement);
 

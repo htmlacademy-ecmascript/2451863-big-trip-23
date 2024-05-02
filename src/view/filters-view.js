@@ -7,13 +7,9 @@ const FILTER_TYPES = [
   'past'
 ];
 
-const createFilterInputTemplate = (filterType) => {
-  if (filterType === 'everything') {
-    return `<input id="filter-${filterType}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="${filterType}" checked>`;
-  }
-
-  return `<input id="filter-${filterType}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="${filterType}">`;
-};
+const createFilterInputTemplate = (filterType) => `
+  <input id="filter-${filterType}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value=" ${filterType}" ${filterType === 'everything' ? 'checked' : ''}>
+`;
 
 const createFilterItemTemplate = (filterType) => `
 <div class="trip-filters__filter">

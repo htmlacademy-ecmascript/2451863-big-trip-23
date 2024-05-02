@@ -8,17 +8,22 @@ const SORTER_TYPES = [
   'offer'
 ];
 
-const createSortingItemInputTemplate = (sorterType) => {
+
+const getButtonAttribute = (sorterType) => {
   if (sorterType === 'day') {
-    return `<input id="sort-${sorterType}" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-${sorterType}" checked>`;
+    return 'checked';
   }
 
   if (sorterType === 'event' || sorterType === 'offer') {
-    return `<input id="sort-${sorterType}" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-${sorterType}" disabled>`;
+    return 'disabled';
   }
 
-  return `<input id="sort-${sorterType}" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-${sorterType}">`;
+  return '';
 };
+
+const createSortingItemInputTemplate = (sorterType) => `
+  <input id="sort-${sorterType}" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-${sorterType}" ${getButtonAttribute(sorterType)}>
+`;
 
 const createSortingItemTemplate = (sorterType) => `
   <div class="trip-sort__item  trip-sort__item--${sorterType}">
