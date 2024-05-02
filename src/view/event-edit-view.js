@@ -1,4 +1,5 @@
-import {createElement} from '../render';
+import {createElement} from '../render.js';
+import {POINT_TYPES} from '../const.js';
 
 const MOCK_OFFERS = [
   {
@@ -32,8 +33,6 @@ const MOCK_OFFERS = [
     checked: false
   }
 ];
-
-const POINT_TYPES = ['taxi', 'bus', 'train', 'ship', 'drive', 'flight', 'check-in', 'sightseeing', 'restaurant'];
 
 const createPointTypeTemplate = (pointType) => `
   <div class="event__type-item">

@@ -1,13 +1,5 @@
-import {createElement} from '../render';
-
-const SORTER_TYPES = [
-  'day',
-  'event',
-  'time',
-  'price',
-  'offer'
-];
-
+import {createElement} from '../render.js';
+import {SORTER_TYPES} from '../const.js';
 
 const getButtonAttribute = (sorterType) => {
   if (sorterType === 'day') {
