@@ -1,6 +1,8 @@
 import MainPresenter from './presenter/main-presenter.js';
 import TripInfoView from './view/trip-info-view.js';
 import FiltersView from './view/filters-view.js';
+import EventsModel from './model/events-model.js';
+
 import {render, RenderPosition} from './render.js';
 
 const pageMainElement = document.querySelector('.page-main');
@@ -15,6 +17,8 @@ render(new TripInfoView(), tripMainElement, RenderPosition.AFTERBEGIN);
 
 render(new FiltersView(), tripControlsFiltersElement);
 
-const mainPresenter = new MainPresenter(tripEventsElement);
+const eventsModel = new EventsModel();
+
+const mainPresenter = new MainPresenter(tripEventsElement, eventsModel);
 
 mainPresenter.init();
