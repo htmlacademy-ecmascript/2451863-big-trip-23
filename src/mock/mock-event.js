@@ -1,6 +1,4 @@
 import {getRandomArrayItem} from '../utils.js';
-import {getMockDestinations} from './mock-destinations.js';
-import {getMockOffers} from './mock-offers.js';
 
 const mockEvents = [
   {
@@ -61,10 +59,6 @@ const mockEvents = [
   },
 ];
 
-const getEventDestination = (event) => getMockDestinations().find((destination) => destination.id === event.destination);
-
-const getEventOffers = (event) => getMockOffers().find((offers) => offers.type === event.type);
-
 const getRandomEvent = () => getRandomArrayItem(mockEvents);
 
-export {getRandomEvent, getEventDestination, getEventOffers};
+export {getRandomEvent};

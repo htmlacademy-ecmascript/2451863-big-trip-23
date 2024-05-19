@@ -1,37 +1,37 @@
 const mockDestinations = [
   {
     id: 'dest1',
-    description: 'Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.',
+    description: 'Chamonix aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.',
     name: 'Chamonix',
     pictures: [
       {
         src: 'https://loremflickr.com/248/152?random=1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        description: 'Chamonix pic 1.',
       },
       {
         src: 'https://loremflickr.com/248/152?random=2',
-        description: 'Aliquam id orci ut lectus varius viverra.',
+        description: 'Chamonix pic 2.',
       },
       {
         src: 'https://loremflickr.com/248/152?random=3',
-        description: 'Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.',
+        description: 'Chamonix pic 3.',
       }
     ],
   },
   {
     id: 'dest2',
-    description: 'Aliquam id orci ut lectus varius viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum.',
+    description: 'Amsterdam id orci ut lectus varius viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum.',
     name: 'Amsterdam',
     pictures: [],
   },
   {
     id: 'dest3',
-    description: 'Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Aliquam id orci ut lectus varius viverra. Cras aliquet varius magna, non porta ligula feugiat eget.',
+    description: 'Jeneva nunc ex, convallis sed finibus eget, sollicitudin eget ante. Aliquam id orci ut lectus varius viverra. Cras aliquet varius magna, non porta ligula feugiat eget.',
     name: 'Jeneva',
     pictures: [
       {
         src: 'https://loremflickr.com/248/152?random=1',
-        description: 'Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum.',
+        description: 'Jeneva pic 1.',
       }
     ],
   }
