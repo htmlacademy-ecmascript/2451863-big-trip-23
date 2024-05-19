@@ -1,13 +1,5 @@
-import {createElement} from '../render';
-
-const SORTER_TYPES = [
-  'day',
-  'event',
-  'time',
-  'price',
-  'offer'
-];
-
+import {createElement} from '../render.js';
+import {SORTER_TYPES} from '../const.js';
 
 const getButtonAttribute = (sorterType) => {
   if (sorterType === 'day') {
@@ -21,13 +13,9 @@ const getButtonAttribute = (sorterType) => {
   return '';
 };
 
-const createSortingItemInputTemplate = (sorterType) => `
-  <input id="sort-${sorterType}" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-${sorterType}" ${getButtonAttribute(sorterType)}>
-`;
-
 const createSortingItemTemplate = (sorterType) => `
   <div class="trip-sort__item  trip-sort__item--${sorterType}">
-    ${createSortingItemInputTemplate(sorterType)}
+    <input id="sort-${sorterType}" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-${sorterType}" ${getButtonAttribute(sorterType)}>
     <label class="trip-sort__btn" for="sort-${sorterType}">${sorterType}</label>
   </div>
 `;

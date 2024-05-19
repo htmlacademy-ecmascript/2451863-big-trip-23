@@ -1,19 +1,9 @@
-import {createElement} from '../render';
-
-const FILTER_TYPES = [
-  'everything',
-  'future',
-  'present',
-  'past'
-];
-
-const createFilterInputTemplate = (filterType) => `
-  <input id="filter-${filterType}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value=" ${filterType}" ${filterType === 'everything' ? 'checked' : ''}>
-`;
+import {createElement} from '../render.js';
+import {FILTER_TYPES} from '../const.js';
 
 const createFilterItemTemplate = (filterType) => `
 <div class="trip-filters__filter">
-  ${createFilterInputTemplate(filterType)}
+  <input id="filter-${filterType}" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="${filterType}" ${filterType === 'everything' ? 'checked' : ''}>
   <label class="trip-filters__filter-label" for="filter-${filterType}">${filterType}</label>
 </div>
 `;

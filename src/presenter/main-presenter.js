@@ -1,28 +1,32 @@
 import SortingView from '../view/sorting-view.js';
-import EventEditView from '../view/event-edit-view.js';
-import EventsItemView from '../view/events-item-view.js';
+import EditFormView from '../view/edit-form-view.js';
+import EventView from '../view/event-view.js';
 import EventsListView from '../view/events-list-view.js';
-
 import {render} from '../render.js';
-
-const POINT_AMOUNT = 3;
 
 export default class MainPresenter {
   sortingComponent = new SortingView();
   eventsListComponent = new EventsListView();
-  eventEditComponent = new EventEditView();
 
-  constructor(container) {
+  constructor({container, eventsModel}) {
     this.container = container;
+    this.eventsModel = eventsModel;
+    this.destinations = this.eventsModel.destinations;
+    this.offers = this.eventsModel.offers;
   }
 
   init() {
-    render(this.sortingComponent, this.container);
-    render(this.eventsListComponent, this.container);
-    render(this.eventEditComponent, this.eventsListComponent.getElement());
+    this.events = [...this.eventsModel.getEvents()];
 
-    for (let i = 0; i < POINT_AMOUNT; i++) {
-      render(new EventsItemView(), this.eventsListComponent.getElement());
-    }
+    render(this.sortingComponent, this.container);
+
+    render(this.eventsListComponent, this.container);
+
+    this.events.forEach((event, index) => {
+      const eventView = index === 0
+        ? new EditFormView({event, destinations: this.destinations, offers: this.offers})
+        : new EventView({event, destinations: this.destinations, offers: this.offers});
+      render(eventView, this.eventsListComponent.getElement());
+    });
   }
 }
