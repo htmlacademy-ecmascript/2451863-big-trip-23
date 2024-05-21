@@ -1,4 +1,4 @@
-import {createElement} from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 import {formatDate, getActiveClass, getDuration} from '../utils.js';
 
 const createOffersTemplate = (offers) => {
@@ -41,7 +41,7 @@ const createEventTemplate = (event, destinations, offers) => {
           <p class="event__time">
             <time class="event__start-time" datetime="${formatDate(dateFrom, 'YYYY-MM-DDTHH:mm')}">${formatDate(dateFrom, 'HH:mm')}</time>
             &mdash;
-            <time class="event__end-time" datetime="${formatDate(dateTo, 'YYYY-MM-DDTHH:mm')}">"${formatDate(dateTo, 'YYYY-MM-DDTHH:mm')}"</time>
+            <time class="event__end-time" datetime="${formatDate(dateTo, 'YYYY-MM-DDTHH:mm')}">${formatDate(dateTo, 'HH:mm')}</time>
           </p>
           <p class="event__duration">${getDuration(dateFrom, dateTo)}</p>
         </div>
@@ -64,26 +64,19 @@ const createEventTemplate = (event, destinations, offers) => {
   `);
 };
 
-export default class EventsItemView {
+export default class EventsItemView extends AbstractView{
+  #event = null;
+  #destinations = null;
+  #offers = null;
+
   constructor({event, destinations, offers}) {
-    this.event = event;
-    this.destinations = destinations;
-    this.offers = offers;
+    super();
+    this.#event = event;
+    this.#destinations = destinations;
+    this.#offers = offers;
   }
 
-  getTemplate() {
-    return createEventTemplate(this.event, this.destinations, this.offers);
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
+  get template() {
+    return createEventTemplate(this.#event, this.#destinations, this.#offers);
   }
 }

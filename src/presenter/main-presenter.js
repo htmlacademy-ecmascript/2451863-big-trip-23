@@ -2,7 +2,7 @@ import SortingView from '../view/sorting-view.js';
 import EditFormView from '../view/edit-form-view.js';
 import EventView from '../view/event-view.js';
 import EventsListView from '../view/events-list-view.js';
-import {render} from '../render.js';
+import {render} from '../framework/render.js';
 
 export default class MainPresenter {
   sortingComponent = new SortingView();
@@ -22,11 +22,8 @@ export default class MainPresenter {
 
     render(this.eventsListComponent, this.container);
 
-    this.events.forEach((event, index) => {
-      const eventView = index === 0
-        ? new EditFormView({event, destinations: this.destinations, offers: this.offers})
-        : new EventView({event, destinations: this.destinations, offers: this.offers});
-      render(eventView, this.eventsListComponent.getElement());
+    this.events.forEach((event) => {
+      render(new EventView({event, destinations: this.destinations, offers: this.offers}), this.eventsListComponent.element);
     });
   }
 }

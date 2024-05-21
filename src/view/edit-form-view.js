@@ -1,5 +1,6 @@
-import {createElement} from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 import {formatDate} from '../utils.js';
+import {PLACEHOLDER_EVENT} from '../const.js';
 
 const createPointTemplate = (eventType, eventID, type) => `
   <div class="event__type-item">
@@ -138,26 +139,19 @@ const createEditFormTemplate = (event, destinations, offers) => {
   `;
 };
 
-export default class EditFormView {
-  constructor({event, destinations, offers}) {
-    this.event = event;
-    this.destinations = destinations;
-    this.offers = offers;
+export default class EditFormView extends AbstractView {
+  #event = null;
+  #destinations = null;
+  #offers = null;
+
+  constructor({event = PLACEHOLDER_EVENT, destinations, offers}) {
+    super();
+    this.#event = event;
+    this.#destinations = destinations;
+    this.#offers = offers;
   }
 
-  getTemplate() {
-    return createEditFormTemplate(this.event, this.destinations, this.offers);
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
+  get template() {
+    return createEditFormTemplate(this.#event, this.#destinations, this.#offers);
   }
 }
