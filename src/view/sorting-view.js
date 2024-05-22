@@ -20,7 +20,7 @@ const createSortingItemTemplate = (sorterType) => `
   </div>
 `;
 
-const createSortingFormTemplate = () => `
+const createSortingTemplate = () => `
   <form class="trip-events__trip-sort  trip-sort" action="#" method="get">
     ${SORTER_TYPES.map((sorterType) => createSortingItemTemplate(sorterType)).join('')}
   </form>
@@ -28,6 +28,6 @@ const createSortingFormTemplate = () => `
 
 export default class SortingView extends AbstractView {
   get template() {
-    return createSortingFormTemplate();
+    return createSortingTemplate();
   }
 }

@@ -2,8 +2,10 @@ import SortingView from '../view/sorting-view.js';
 import EditFormView from '../view/edit-form-view.js';
 import EventView from '../view/event-view.js';
 import EventsListView from '../view/events-list-view.js';
+import BlankPageView from '../view/blank-page-view.js';
+
 import {render, replace} from '../framework/render.js';
-import {isEscapeKey} from '../utils.js';
+import {isEscapeKey, isArrayEmpty} from '../utils.js';
 export default class MainPresenter {
   #container = null;
   #eventsModel = null;
@@ -21,6 +23,19 @@ export default class MainPresenter {
   init() {
     this.#events = [...this.#eventsModel.events];
 
+    if (!isArrayEmpty(this.#events)) {
+      this.#renderEventsListContent();
+    } else {
+      this.#renderBlankPage();
+    }
+  }
+
+  #renderBlankPage() {
+    const blankPageComponent = new BlankPageView({message: 'Blank Message'});
+    render(blankPageComponent, this.#container);
+  }
+
+  #renderEventsListContent() {
     render(this.#sortingComponent, this.#container);
 
     render(this.#eventsListComponent, this.#container);

@@ -1,6 +1,6 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import {formatDate} from '../utils.js';
 import {PLACEHOLDER_EVENT} from '../const.js';
+import {formatDate, isArrayEmpty} from '../utils.js';
 
 const createPointTemplate = (eventType, eventID, type) => `
   <div class="event__type-item">
@@ -23,7 +23,7 @@ const createOffersItemTemplate = ({id, title, price, checked}) => `
 `;
 
 const createOffersTemplate = (allOffers, activeOffers) => {
-  if (!allOffers || allOffers.length === 0) {
+  if (isArrayEmpty(allOffers)) {
     return '';
   }
 
@@ -55,7 +55,7 @@ const createPhotosTemplate = (photos) => {
 };
 
 const createDestinationTemplate = (description, photos) => {
-  if (!description || description.length === 0) {
+  if (isArrayEmpty(description)) {
     return '';
   }
 

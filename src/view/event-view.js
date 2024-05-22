@@ -1,8 +1,8 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import {formatDate, getActiveClass, getDuration} from '../utils.js';
+import {formatDate, getActiveClass, getDuration, isArrayEmpty} from '../utils.js';
 
 const createOffersTemplate = (offers) => {
-  if (!offers || offers.length === 0) {
+  if (isArrayEmpty(offers)) {
     return '';
   }
 
@@ -64,7 +64,7 @@ const createEventTemplate = (event, destinations, offers) => {
   `);
 };
 
-export default class EventsItemView extends AbstractView{
+export default class EventView extends AbstractView{
   #event = null;
   #destinations = null;
   #offers = null;

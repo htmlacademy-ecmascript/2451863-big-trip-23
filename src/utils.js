@@ -32,4 +32,6 @@ const getRandomArrayItem = (items) => items[Math.floor(Math.random() * items.len
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getRandomArrayItem, formatDate, getDuration, getActiveClass, isEscapeKey};
+const isArrayEmpty = (array) => !(array && array.length > 0);
+
+export {getRandomArrayItem, formatDate, getDuration, getActiveClass, isEscapeKey, isArrayEmpty};
