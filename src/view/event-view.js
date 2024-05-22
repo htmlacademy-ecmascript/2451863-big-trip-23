@@ -69,13 +69,13 @@ export default class EventsItemView extends AbstractView{
   #destinations = null;
   #offers = null;
 
-  constructor({event, destinations, offers, onEventClick}) {
+  constructor({event, destinations, offers, onRollUpButtonClick}) {
     super();
     this.#event = event;
     this.#destinations = destinations;
     this.#offers = offers;
 
-    this.element.querySelector('.event__rollup-btn').addEventListener('click', onEventClick);
+    this.element.querySelector('.event__rollup-btn').addEventListener('click', onRollUpButtonClick);
   }
 
   get template() {

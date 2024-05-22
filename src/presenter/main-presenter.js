@@ -43,7 +43,7 @@ export default class MainPresenter {
       event,
       destinations: this.#eventsModel.destinations,
       offers: this.#eventsModel.offers,
-      onEventClick: () => {
+      onRollUpButtonClick: () => {
         replaceEventToEditForm();
         document.addEventListener('keydown', onEscKeydown);
       }
@@ -54,6 +54,10 @@ export default class MainPresenter {
       destinations: this.#eventsModel.destinations,
       offers: this.#eventsModel.offers,
       onEditFormSubmit: () => {
+        replaceEditFormToEvent();
+        document.removeEventListener('keydown', onEscKeydown);
+      },
+      onRollUpButtonClick: () => {
         replaceEditFormToEvent();
         document.removeEventListener('keydown', onEscKeydown);
       }
