@@ -30,4 +30,6 @@ const getActiveClass = (isActive, activeClass) => isActive ? activeClass : '';
 
 const getRandomArrayItem = (items) => items[Math.floor(Math.random() * items.length)];
 
-export {getRandomArrayItem, formatDate, getDuration, getActiveClass};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {getRandomArrayItem, formatDate, getDuration, getActiveClass, isEscapeKey};

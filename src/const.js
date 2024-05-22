@@ -1,7 +1,7 @@
 const SORTER_TYPES = ['day', 'event', 'time', 'price', 'offer'];
 const FILTER_TYPES = ['everything', 'future', 'present', 'past'];
 
-const EVENT_COUNT = 4;
+const EVENT_COUNT = 8;
 
 const PLACEHOLDER_EVENT = {
   id: 'placeholder',
