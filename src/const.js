@@ -14,10 +14,9 @@ const EmptyFilterMessages = {
   [Filters.FUTURE]: 'There are no future events now',
 };
 
-const EVENT_COUNT = 0;
+const EVENT_COUNT = 8;
 
-const PLACEHOLDER_EVENT = {
-  id: 'placeholder',
+const BLANK_EVENT = {
   basePrice: 0,
   dateFrom: new Date().toISOString(),
   dateTo: new Date().toISOString(),
@@ -27,10 +26,4 @@ const PLACEHOLDER_EVENT = {
   type: 'flight'
 };
 
-const getSorterTypes = () => SORTER_TYPES;
-const getFilters = () => Filters;
-const getEmptyFilterMessages = () => EmptyFilterMessages;
-const getEventCount = () => EVENT_COUNT;
-const getPlaceholderEvent = () => PLACEHOLDER_EVENT;
-
-export {getSorterTypes, getEventCount, getPlaceholderEvent, getFilters, getEmptyFilterMessages};
+export {SORTER_TYPES, EVENT_COUNT, BLANK_EVENT, Filters, EmptyFilterMessages};

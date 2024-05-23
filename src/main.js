@@ -4,7 +4,7 @@ import FiltersView from './view/filters-view.js';
 import EventsModel from './model/events-model.js';
 import FiltersModel from './model/filters-model.js';
 import {render, RenderPosition} from './framework/render.js';
-import {getFilters} from './const.js';
+import {Filters} from './const.js';
 
 const tripMainElement = document.querySelector('.trip-main');
 const tripControlsFiltersElement = document.querySelector('.trip-controls__filters');
@@ -17,7 +17,7 @@ const eventsModel = new EventsModel();
 const filtersModel = new FiltersModel();
 
 const filtersComponent = new FiltersView({
-  filters: getFilters(),
+  filters: Filters,
   currentFilter: filtersModel.filter,
   onFilterChange: (evt) => {
     evt.preventDefault();

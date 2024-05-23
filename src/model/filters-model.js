@@ -1,6 +1,7 @@
-import {getFilters} from '../const.js';
+import {Filters} from '../const.js';
+
 export default class FiltersModel {
-  #filter = getFilters().EVERYTHING;
+  #filter = Filters.EVERYTHING;
 
   get filter() {
     return this.#filter;

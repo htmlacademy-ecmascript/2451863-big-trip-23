@@ -1,4 +1,4 @@
-import {getFilters} from './const.js';
+import {Filters} from './const.js';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 dayjs.extend(duration);
@@ -31,12 +31,13 @@ const isEventPast = (dateTo) => new Date() > new Date(dateTo);
 const isEventFuture = (dateFrom) => new Date() < new Date(dateFrom);
 const isEventPresent = (dateFrom, dateTo) => !isEventPast(dateTo) && !isEventFuture(dateFrom);
 
-const FilterEventsFunctions = {
-  [getFilters().EVERYTHING]: (events) => events,
-  [getFilters().PAST]: (events) => events.filter((event) => isEventPast(event.dateTo)),
-  [getFilters().PRESENT]: (events) => events.filter((event) => isEventPresent(event.dateFrom, event.dateTo)),
-  [getFilters().FUTURE]: (events) => events.filter((event) => isEventFuture(event.dateFrom)),
+const FilterFunctions = {
+  [Filters.EVERYTHING]: (events) => events,
+  [Filters.PAST]: (events) => events.filter((event) => isEventPast(event.dateTo)),
+  [Filters.PRESENT]: (events) => events.filter((event) => isEventPresent(event.dateFrom, event.dateTo)),
+  [Filters.FUTURE]: (events) => events.filter((event) => isEventFuture(event.dateFrom)),
 };
+
 const getActiveClass = (isActive, activeClass) => isActive ? activeClass : '';
 
 const getRandomArrayItem = (items) => items[Math.floor(Math.random() * items.length)];
@@ -45,4 +46,4 @@ const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const isArrayEmpty = (array) => !(array && array.length > 0);
 
-export {getRandomArrayItem, formatDate, getDuration, getActiveClass, isEscapeKey, isArrayEmpty, FilterEventsFunctions};
+export {getRandomArrayItem, formatDate, getDuration, getActiveClass, isEscapeKey, isArrayEmpty, FilterFunctions};

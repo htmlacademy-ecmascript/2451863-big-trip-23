@@ -1,5 +1,5 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import {getPlaceholderEvent} from '../const.js';
+import {BLANK_EVENT} from '../const.js';
 import {formatDate, isArrayEmpty} from '../utils.js';
 
 const createPointTemplate = (eventType, eventID, type) => `
@@ -147,7 +147,7 @@ export default class EditFormView extends AbstractView {
   #destinations = null;
   #offers = null;
 
-  constructor({event = getPlaceholderEvent(), destinations, offers, onEditFormSubmit, onRollUpButtonClick}) {
+  constructor({event = BLANK_EVENT, destinations, offers, onEditFormSubmit, onRollUpButtonClick}) {
     super();
     this.#event = event;
     this.#destinations = destinations;

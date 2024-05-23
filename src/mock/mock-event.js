@@ -1,4 +1,5 @@
 import {getRandomArrayItem} from '../utils.js';
+import {EVENT_COUNT} from '../const.js';
 
 const mockEvents = [
   {
@@ -61,4 +62,6 @@ const mockEvents = [
 
 const getRandomEvent = () => getRandomArrayItem(mockEvents);
 
-export {getRandomEvent};
+const getMockEvents = () => Array.from({length: EVENT_COUNT}, getRandomEvent);
+
+export {getMockEvents};
