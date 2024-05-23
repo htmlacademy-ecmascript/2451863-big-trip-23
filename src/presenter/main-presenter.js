@@ -3,9 +3,7 @@ import EditFormView from '../view/edit-form-view.js';
 import EventView from '../view/event-view.js';
 import EventsListView from '../view/events-list-view.js';
 import BlankPageView from '../view/blank-page-view.js';
-import FiltersView from '../view/filters-view.js';
 
-import {getEmptyFilterMessages} from '../const.js';
 import {render, replace} from '../framework/render.js';
 import {isEscapeKey, isArrayEmpty} from '../utils.js';
 export default class MainPresenter {
@@ -36,7 +34,6 @@ export default class MainPresenter {
 
   #renderBlankPage(filter) {
     const blankPageComponent = new BlankPageView({filter});
-    console.log(filter);
     render(blankPageComponent, this.#container);
   }
 

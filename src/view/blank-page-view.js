@@ -12,8 +12,6 @@ export default class BlankPageView extends AbstractView {
   }
 
   get template() {
-    console.log(getEmptyFilterMessages());
-    console.log(this.#filter);
     return createBlankPageTemplate(this.#filter);
   }
 }
