@@ -1,16 +1,19 @@
 import AbstractView from '../framework/view/abstract-view';
+import {getEmptyFilterMessages} from '../const';
 
-const createBlankPageTemplate = (message) => `<p class="trip-events__msg">${message}</p>`;
+const createBlankPageTemplate = (filter) => `<p class="trip-events__msg">${getEmptyFilterMessages()[filter]}</p>`;
 
 export default class BlankPageView extends AbstractView {
-  #message = null;
+  #filter = null;
 
-  constructor({message}) {
+  constructor({filter}) {
     super();
-    this.#message = message;
+    this.#filter = filter;
   }
 
   get template() {
-    return createBlankPageTemplate(this.#message);
+    console.log(getEmptyFilterMessages());
+    console.log(this.#filter);
+    return createBlankPageTemplate(this.#filter);
   }
 }

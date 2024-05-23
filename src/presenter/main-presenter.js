@@ -3,21 +3,25 @@ import EditFormView from '../view/edit-form-view.js';
 import EventView from '../view/event-view.js';
 import EventsListView from '../view/events-list-view.js';
 import BlankPageView from '../view/blank-page-view.js';
+import FiltersView from '../view/filters-view.js';
 
+import {getEmptyFilterMessages} from '../const.js';
 import {render, replace} from '../framework/render.js';
 import {isEscapeKey, isArrayEmpty} from '../utils.js';
 export default class MainPresenter {
   #container = null;
   #eventsModel = null;
+  #filtersModel = null;
 
   #sortingComponent = new SortingView();
   #eventsListComponent = new EventsListView();
 
   #events = [];
 
-  constructor({container, eventsModel}) {
+  constructor({container, eventsModel, filtersModel}) {
     this.#container = container;
     this.#eventsModel = eventsModel;
+    this.#filtersModel = filtersModel;
   }
 
   init() {
@@ -26,12 +30,13 @@ export default class MainPresenter {
     if (!isArrayEmpty(this.#events)) {
       this.#renderEventsListContent();
     } else {
-      this.#renderBlankPage();
+      this.#renderBlankPage(this.#filtersModel.filter);
     }
   }
 
-  #renderBlankPage() {
-    const blankPageComponent = new BlankPageView({message: 'Blank Message'});
+  #renderBlankPage(filter) {
+    const blankPageComponent = new BlankPageView({filter});
+    console.log(filter);
     render(blankPageComponent, this.#container);
   }
 

@@ -16,6 +16,17 @@ const createFiltersTemplate = () => `
 `;
 
 export default class FiltersView extends AbstractView {
+  #filters = null;
+  #currentFilter = null;
+
+  constructor({filters, currentFilter, onFilterChange}) {
+    super();
+    this.#filters = filters;
+    this.#currentFilter = currentFilter;
+
+    this.element.addEventListener('change', onFilterChange);
+  }
+
   get template() {
     return createFiltersTemplate();
   }
