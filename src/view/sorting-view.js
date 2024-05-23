@@ -1,5 +1,5 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import {SORTER_TYPES} from '../const.js';
+import {getSorterTypes} from '../const.js';
 
 const getButtonAttribute = (sorterType) => {
   if (sorterType === 'day') {
@@ -22,7 +22,7 @@ const createSortingItemTemplate = (sorterType) => `
 
 const createSortingTemplate = () => `
   <form class="trip-events__trip-sort  trip-sort" action="#" method="get">
-    ${SORTER_TYPES.map((sorterType) => createSortingItemTemplate(sorterType)).join('')}
+    ${getSorterTypes().map((sorterType) => createSortingItemTemplate(sorterType)).join('')}
   </form>
 `;
 

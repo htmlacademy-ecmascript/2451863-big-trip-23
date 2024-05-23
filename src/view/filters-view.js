@@ -1,5 +1,5 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import {Filters} from '../const.js';
+import {getFilters} from '../const.js';
 
 const createFilterItemTemplate = (filterType) => `
 <div class="trip-filters__filter">
@@ -10,7 +10,7 @@ const createFilterItemTemplate = (filterType) => `
 
 const createFiltersTemplate = () => `
   <form class="trip-filters" action="#" method="get">
-    ${Object.values(Filters).map((filterType) => createFilterItemTemplate(filterType)).join('')}
+    ${Object.values(getFilters()).map((filterType) => createFilterItemTemplate(filterType)).join('')}
     <button class="visually-hidden" type="submit">Accept filter</button>
   </form>
 `;

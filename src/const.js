@@ -7,11 +7,11 @@ const Filters = {
   PAST: 'past'
 };
 
-const EMPTY_FILTER_MESSAGES = {
+const EmptyFilterMessages = {
   [Filters.EVERYTHING]: 'Click New Event to create your first point',
-  [Filters.FUTURE]: 'There are no future events now',
   [Filters.PAST]: 'There are no past events now',
-  [Filters.PRESENT]: 'There are no present events now'
+  [Filters.PRESENT]: 'There are no present events now',
+  [Filters.FUTURE]: 'There are no future events now',
 };
 
 const EVENT_COUNT = 0;
@@ -27,4 +27,10 @@ const PLACEHOLDER_EVENT = {
   type: 'flight'
 };
 
-export {SORTER_TYPES, Filters, EVENT_COUNT, PLACEHOLDER_EVENT};
+const getSorterTypes = () => SORTER_TYPES;
+const getFilters = () => Filters;
+const getEmptyFilterMessages = () => EmptyFilterMessages;
+const getEventCount = () => EVENT_COUNT;
+const getPlaceholderEvent = () => PLACEHOLDER_EVENT;
+
+export {getSorterTypes, getEventCount, getPlaceholderEvent, getFilters, getEmptyFilterMessages};
